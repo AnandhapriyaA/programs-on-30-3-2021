@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class mains extends UserMainCode {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("enter string1");
+		String string1 = scan.nextLine();
+		System.out.println("enter string2");
+		String string2 = scan.nextLine();
+		if (string1.length() <= 100 && string2.length() <= 100)
+			replacePlus(string1, string2);
+		scan.close();
+	}
+}
+class UserMainCode{
+static String replacePlus(String string1, String string2) {
+		String result = "";
+		StringBuilder sb = new StringBuilder();
+		char[] str1 = string1.toCharArray();
+		char[] str2 = string2.toCharArray();
+		for (int i = 0; i < str1.length; i++) {
+			for (int j = 0; j < str2.length; j++) {
+				if (i != str1.length - 1 && j != str2.length - 1) {
+					if (str1[i] == str2[j]) {
+						result += str1[i];
+					}
+				}
+			}
+		}
+		for (int i = 0; i < string1.length(); i++) {
+			if (result.charAt(0) == string1.charAt(i) || result.charAt(1) == string1.charAt(i)) {
+				sb.append(string1.charAt(i));
+			} else
+				sb.append("+");
+		}
+		System.out.println(sb.toString());
+		return sb.toString();
+	}
+}
