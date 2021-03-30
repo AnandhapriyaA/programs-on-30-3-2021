@@ -1,0 +1,36 @@
+
+import java.util.Scanner;
+
+public class mains extends UserMainCode {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("enter string1");
+		String str1 = scan.nextLine();
+		System.out.println("enter string2");
+		String str2 = scan.nextLine();
+		compareDashes(str1, str2);
+		scan.close();
+	}
+}
+class UserMainCode{
+	static int compareDashes(String str1, String str2) {
+		ArrayList<Integer> list1 = new ArrayList<Integer>();
+		for (int i = 0; i < str1.length(); i++) {
+			if (str1.charAt(i) == '-') {
+				list1.add(i);
+			}
+		}
+		ArrayList<Integer> list2 = new ArrayList<Integer>();
+		for (int i = 0; i < str2.length(); i++) {
+			if (str2.charAt(i) == '-') {
+				list2.add(i);
+			}
+		}
+		if (list1.equals(list2)) {
+			System.out.println("Yes");
+			return 1;
+		} else
+			System.out.println("No");
+		return 2;
+	}
+}
